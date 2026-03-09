@@ -1,0 +1,19 @@
+body{
+    background-color: aliceblue;
+}
+legend {
+
+    color: red;
+    font-weight: bold;
+    font-size: large;
+    text-align: left !important;
+}
+.label{
+
+    text-align: right;
+    font-weight: bold;
+    color: black;
+}
+span{
+    color: red;
+}
