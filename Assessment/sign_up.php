@@ -1,4 +1,4 @@
-<?php require_once "contact_process.php"; ?>
+<?php require_once "signup_process.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
