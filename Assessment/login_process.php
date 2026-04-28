@@ -24,5 +24,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $passwordErr = "Password must be at least 8 characters";
         }
     }
+
+    if ($email === "" || $password === "") {
+    $error = "Email and password are required.";
+} else {
+
+    $conn = mysqli_connect("localhost", "root", "", "webtechdb");
+
+    $stmt = mysqli_prepare(
+        $conn,
+        "SELECT * FROM students WHERE email = ? AND password = ?"
+    );
+
+    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        $message = "Login successful!";
+    } else {
+        $message = "Invalid email or password";
+    }
+
+    mysqli_stmt_close($stmt);
+}
 }
 ?>

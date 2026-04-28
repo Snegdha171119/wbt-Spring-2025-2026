@@ -76,7 +76,7 @@
 
 <?php if (
     $_SERVER["REQUEST_METHOD"] == "POST" &&
-    !$firstnameErr && !$lastnameErr && !$emailErr && !$passwordErr
+    !$firstnameErr && !$lastnameErr && !$emailErr && !$passwordErr && !$contactErr
 ): ?>
 
 <h3>Submitted values</h3>

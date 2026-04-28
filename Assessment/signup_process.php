@@ -38,7 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    
+    if (empty($_POST["contact"])) {
+    $contactErr = "Contact number is required";
+} else {
+    $contact = cleanInput($_POST["contact"]);
+    if (!preg_match("/^[0-9]{11}$/", $contact)) {
+        $contactErr = "Contact number must be 11 digits";
+    }
+}
     if (empty($_POST["password"])) {
         $passwordErr = "Password is required";
     } else {
@@ -47,15 +54,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $passwordErr = "Password must be at least 8 characters";
         }
     }
-   if (!empty($_POST["contact"])) {
-    $contact = cleanInput($_POST["contact"]);
-    
-    if (!preg_match("/^[0-9]{11}$/", $contact)) {
-        $contactErr = "Contact number must be 11 digits";
+
+    if ($firstname === "" || $lastname === "" || $email === "" || $contact === "" || $password === "") {
+        $error = "All fields are required and age must be a positive number.";
+    } else {
+
+        $conn = mysqli_connect("localhost", "root", "", "webtechdb");
+        $stmt = mysqli_prepare(
+            $conn,
+            "INSERT INTO students (first_name, last_name, email, contact, password)
+             VALUES (?, ?, ?, ?, ?)"
+        );
+        mysqli_stmt_bind_param($stmt, "sssis", $firstname, $lastname, $email, $contact, $password);
+
+        if (mysqli_stmt_execute($stmt)) {
+            $message = "Student added successfully (ID: "
+                     . mysqli_stmt_insert_id($stmt) . ").";
+        } else {
+            $error = "Could not add student: " . mysqli_stmt_error($stmt);
+        }
+        mysqli_stmt_close($stmt);
     }
+   
 }
 
-
-
-}
+ 
 ?>
