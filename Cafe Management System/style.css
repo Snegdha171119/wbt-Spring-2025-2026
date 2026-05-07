@@ -1,0 +1,183 @@
+/* =========================================================
+   Cafe Management - Warm Coffee Theme UI
+   ========================================================= */
+
+:root {
+    --bg: #f5efe6;
+    --card: #ffffff;
+    --primary: #6f4e37;   /* coffee brown */
+    --accent: #c08552;    /* caramel */
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --border: #e6d5c3;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #f7f1e8, #efe2d1);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ================= AUTH ================= */
+
+.auth-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.auth-shell {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 950px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
+}
+
+/* LEFT SIDE */
+.auth-side {
+    background: linear-gradient(135deg, #6f4e37, #c08552);
+    color: white;
+    padding: 45px;
+}
+
+.auth-side h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.auth-side p {
+    opacity: 0.9;
+}
+
+/* RIGHT SIDE */
+.auth-form-wrap {
+    padding: 45px;
+}
+
+.auth-card h2 {
+    margin-bottom: 10px;
+}
+
+.muted {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* ================= FORM ================= */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.field input {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fffaf5;
+    color: var(--text);
+}
+
+.field input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.15);
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ================= CARD ================= */
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ================= TABLE ================= */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table tr:hover {
+    background: #fff3e6;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: var(--card);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    color: var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+    .auth-shell {
+        grid-template-columns: 1fr;
+    }
+} wait
